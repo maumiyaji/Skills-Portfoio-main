@@ -1,0 +1,664 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100%;
+    font-family: 'Montserrat', sans-serif;
+    color: black;
+    background-color: white;
+    overflow-anchor: auto;
+}
+
+.titleBG {
+    background-image: url("/img/css-BG.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    min-height: 100%;
+	padding-top: 5%;
+    padding-bottom: 5%;
+    position: relative;
+}
+
+.titleBox {
+	margin-left: 20%;
+    margin-right: 20%;
+    border: 1px solid white;
+}
+
+.titulo, .titulomenor {
+    font-size: 250%;
+    font-weight: 100;
+    line-height: 200%;
+	color: white;
+}
+
+.titulo {display: block}
+.titulomenor {display: none}
+
+.subtitulo {
+    font-size: 120%;
+    font-weight: 300;
+    line-height: 150%;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    color: white;
+	display: block;
+}
+
+.menuBar {
+    position: sticky;
+    top: 0px;
+    z-index: 99;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background: linear-gradient(#252fb3, black) ;
+}
+
+.menuBar a {
+    color: white;
+    text-align: center;
+    font-weight: 300;
+    text-decoration: none;
+    padding: 12px 25px;
+}
+
+.menuBar a:hover  {
+    background-color: #7784e3;
+    font-weight: 300;
+    color: black;
+}
+
+.aftericon {
+    padding-bottom: 5px;
+}
+
+/**
+ * panels styles
+ * cada área da page (info, skills, porfolio e contato) com
+ * uma única class, separados por ids específicas, com seus próprios styles.
+**/
+
+.panels {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14pt;
+    font-weight: 300;
+    text-align: center;
+    padding-top: 80px;
+}
+
+.panels h2 {font-weight: 700;}
+
+/**
+ * o 'welcome' também é um 'panel', com um gradient bg em movimento
+**/
+
+#welcome {
+    display: flex;
+    background: linear-gradient(white,#95b6d7,#5f91c2,#95b6d7,white,#95b6d7);
+    background-size: 500%,100%;
+    animation: welcomeBG 15s ease infinite;
+    padding: 50px 5% 0px 5%;
+}
+
+.welcome-a {
+    display: flex;
+    flex-direction: column;
+}
+
+#wel-txt-ontop {
+    display: none;
+}
+
+#wel-txt-onright {
+    display: block;
+}
+
+@media only screen and (max-width: 700px){
+    #wel-txt-ontop {
+        display: block;
+    }
+    #wel-txt-onright {
+        display: none;
+    }
+}
+
+.welcome-b {
+    display: flex;
+    flex-direction: row;
+}
+
+.wel-left {
+    float: 20%;
+    display: flex;
+    align-items: flex-end;
+    padding-right: 20px;
+}
+
+.wel-right {
+    float: 80%;
+    padding-bottom: 40px;
+}
+
+/**
+ * PERSONAL INFO
+ * links para download de CV, LinkedIn (e GitHub?)
+ * Pequeno resumo profissional
+**/
+
+#personal {
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.cvoulink {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.linkedinlink {
+    text-decoration: none;
+    font-weight: bold;
+    color: #3f7ac2;
+}
+
+.linkedinlink:hover {
+    color: #1f63f5;
+}
+
+.linkedinicon {
+    font-size: 200%;
+}
+
+.cvdownload {
+    text-decoration: none;
+    font-weight: bold;
+    color: #ee5c5c;
+    margin-right: 50px;
+}
+
+.cvdownload:hover {
+    color: #f73434;
+}
+.cvicon {
+    font-size: 200%;
+}
+
+#resumo {
+    background-image: url("/img/macbook-BG.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    font-style: italic;
+    font-weight: 300;
+    line-height: 1.35;
+    color: white;
+    padding: 15px;
+    border-radius: 20px;
+}
+
+/* styles para os botões que abrem os modals dos certificados dos bootcamps */
+#fullstackBtn, #frontendBtn {
+    background-color: #1e3fc6;
+    border-width: 2px;
+    border-color: rgba(256,256,256,0.5);
+    border-radius: 5px;
+    color: white;
+    font-weight: 500;
+    margin: 5px;
+    padding: 4px 4px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#fullstackBtn:hover, #frontendBtn:hover {
+    background-color: #1f66ff;
+}
+
+/**
+ * MODAL
+ * cobrindo a página toda, black, .9 de transparência
+**/
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 99;
+    padding-top: 60px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.9);
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 90%;
+    max-width: 800px;
+}
+
+.modal-content { 
+    animation-name: modalzoom;
+    animation-duration: 0.6s;
+}
+  
+@keyframes modalzoom {
+    from {transform:scale(0)} 
+    to {transform:scale(1)}
+}
+  
+.closeModal, .closeSnk, .closeMemo {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.closeModal:hover, .closeModal:focus,
+.closeSnk:hover, .closeSnk:focus,
+.closeMemo:hover, .closeMemo:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/**
+ * skills panel, com uma descrição de cada um,
+ * skill-bar (testar outras opções, futuramente)
+ * e uma imagem à esquerda
+ **/
+
+#skills {
+    background-color: #75d0d1;
+}
+
+.skills-tab {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #07636a;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px 0 rgba(17, 92, 10, 0.4), 0 6px 20px 0 rgba(9, 87, 9, 0.29);
+}
+
+.skills-tab button {
+    background-color: inherit;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 10px 10px;
+    transition: 0.3s;
+}
+
+.skills-tab button:hover, .dropdown a:hover {
+    color: #1dff5d;
+}
+
+.skills-tab button.active {
+    background-color: #054045;
+    color: #b9ffcd;
+}
+
+.skills-tab i {
+    color: #ffffff;
+    font-size: 6pt;
+    padding: 0px 10px;
+    display: block;
+}
+
+.skill-link {
+    font-size: 14pt;
+    font-weight: 500;
+    color: white;
+    display: flex;
+}
+
+/** dropdown styles para um menu único.
+ * seria usado para screen sizes abaixo de 600px (mobile),
+ * mas o formato do menu bar, como flex-wrap, torna desnecessário.
+ * Caso entrem mais skills, no futuro, deixei aqui.
+
+.dropdown {
+    position: relative;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 10px 10px;
+    transition: 0.3s;
+    display: none;
+}
+
+.dropdown i {
+    display: block;
+    font-size: 14pt;
+    font-weight: 500;
+    color: white;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    margin-top: 11px;
+    background-color: #cbf0de;
+    align-content: center;
+    justify-content: center;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    font-size: 14pt;
+    font-weight: 600;
+    color: #0b6324;
+    padding: 10px 10px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    color: #1dff5d;
+    background-color: #07636a;
+}
+  
+.dropdown:hover .dropdown-content {display: block;}
+
+**/
+
+.skill-content {
+    display: none;
+    padding: 3% 5% 6%;
+}
+
+.skillimgleft {
+    float: left;
+    height: 300px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+}
+
+@media only screen and (max-width: 800px){
+    .skillimgleft {
+        float: none;
+    }
+}
+
+.skilltxt {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.skillbar {
+    margin-top: 5px;
+    margin-bottom: 20px;
+    width: 100%;
+    height: 30px;
+    background-color: #a0a0a0;
+}
+
+.skillvalue {
+    height: 30px;
+    padding: 5px 10px;
+    background-image: linear-gradient(to right, #00ba38, #1b7e39);
+    text-align: right;
+    font-size: 90%;
+    font-weight: 500;
+    color: white;
+}
+
+/** portfolio panel com 4 opções e uma galeria com 4 ou 5 exemplos de cada.
+ * No caso do JS, dois joguinhos-exemplo, personalizados, somente para
+ * mostrar a lógica e a mudança no visual
+**/
+
+#portpanel {
+    padding-top: 10px;
+}
+
+/* Portfolio Menu */
+
+.portfolio-options {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.portoption {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    flex: 25%;
+}
+
+.portoptionicon {
+    text-decoration: none;
+}
+
+.portoptionicon:hover, .portactive {
+    color: royalblue;
+    cursor: pointer;
+}
+
+.porticon {
+    font-size: 200%;
+    padding-bottom: 10px;
+}
+
+/* div para a colocação de cada galeria de itens, através do portfolio.js */
+#portcontext {
+    background-color: #000a1d;
+}
+
+.snakemod {
+    display: flex;
+    flex-direction: column;
+    padding: 50px 5% 50px 5%;
+    color: white;
+    align-items: center;
+}
+
+.port-js-img {
+    display: flex;
+}
+
+#snakeBtn, #memBtn {
+    padding-left: 30px;
+    opacity: 0.5;
+}
+
+#snakeBtn:hover, #memBtn:hover {
+    opacity: 1;
+}
+
+.portflex-container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.portflex-item-left {
+    background-color: #000a1d;
+    display: flex;
+    flex-direction: column;
+    flex: 20%;
+    justify-content: center;
+}
+
+.portflex-item-right {
+    position: relative;
+    background-color: #000a1d;
+    flex: 80%;
+    font-size: 30px;
+    justify-content: center;
+    align-items: center;
+}
+
+.port-main {
+    display: none;
+}
+
+.port-thumb {
+    opacity: 0.5;
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: white;
+    padding-right: 15px;
+}
+
+.active-thumb {
+    border-style: solid;
+    border-width: 1px;
+    border-color: white;
+    padding: 5px;
+}
+
+.active, .port-thumb:hover {
+    opacity: 1.0;
+    cursor: pointer;
+}
+
+@media (max-width: 940px) {
+    .portflex-item-right, .portflex-item-left {
+        flex: 100%;
+    }
+    .portflex-item-left {
+        flex-direction: row;
+    }
+    .portflex-item-right {
+        padding: 30px 0 30px 0;
+    }
+}
+
+#bar-100 {
+    width: 100%;
+    animation-name: val-100;
+    animation-duration: 1.5s;
+}
+
+@keyframes  val-100 {
+    from {width: 0%;}
+    to {width: 100%;}
+}
+
+#bar-95 {
+    width: 95%;
+    animation-name: val-95;
+    animation-duration: 1.5s;
+}
+
+@keyframes  val-95 {
+    from {width: 0%;}
+    to {width: 95%;}
+}
+
+#bar-90 {
+    width: 90%;
+    animation-name: val-90;
+    animation-duration: 1.5s;
+}
+
+@keyframes  val-90 {
+    from {width: 0%;}
+    to {width: 90%;}
+}
+
+#bar-75 {
+    width: 75%;
+    animation-name: val-75;
+    animation-duration: 1s;
+}
+
+@keyframes  val-75 {
+    from {width: 0%;}
+    to {width: 75%;}
+}
+
+@keyframes welcomeBG {
+    0% {background-position: 0% 0%}
+	20% {background-position: 0% 20%}
+	40% {background-position: 0% 40%}
+	60% {background-position: 0% 60%}
+	80% {background-position: 0% 80%}
+	100% {background-position: 0% 100%}
+}
+
+@media only screen and (max-width: 700px){
+    .modal-content {
+      width: 90%;
+    }
+}
+
+@media screen and (max-width: 850px) {
+    .titulo {display: none;}
+    .titulomenor {display: block;}
+    .titleBox {
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .me {height: 285px}
+    .panels {padding-bottom: 68px}
+}
+
+#contato {
+    background-color: #b0c4de;
+    font-size: 12pt;
+    font-weight: 500;
+}
+
+/* contact form */
+
+input[type=text], select, textarea {
+    width: 100%;
+    font-size: 12pt;
+    padding: 10px;
+    border: 1px solid rgb(170, 171, 222);
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+
+input[type=submit] {
+    background-color: #4CAF50;
+    font-size: 12pt;
+    font-weight: bold;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #337636;
+}
+
+.container {
+    border-radius: 5px;
+    background-color: #95acc9;
+    padding: 20px;
+    margin-left: 10%;
+    margin-right: 10%;
+    box-shadow: -8px 8px 10px rgba(12, 12, 50, 0.5);
+}

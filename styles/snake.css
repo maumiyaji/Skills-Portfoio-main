@@ -1,0 +1,67 @@
+.snakegame {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+canvas {
+    margin: auto;
+    border: 2px solid #000;
+    background-image: url("/img/grass.jpg");
+}
+
+div[id="gameover"] {
+    position: absolute;
+    background-color: #000000;
+    opacity: 0.3;
+    width: 482px;
+    height: 482px;
+    display: none;
+}
+
+p[id="gameovermsg"] {
+    position: absolute;
+    color: white;
+    margin-top: -50px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+div[id="restartbutton"] {
+    position: absolute;
+    padding-top: 50px;
+    display: none;
+}
+
+.button {
+    padding-top: 50px;
+    cursor: pointer;
+    text-align: center;
+    color: #fff;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 15px;
+    padding: 15px 10px;
+}
+
+#title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#text {
+    font-size: 16px;
+}
+
+.button:hover {
+    background-color: #4CAF50; /* Green */
+    color: white;
+    box-shadow: 0 12px 12px 0 rgba(0,0,0,0.24);
+}
+
+.button:active {
+    background-color: #3e8e41;
+    box-shadow: 0 0px 0px 0 rgba(0,0,0,0);
+}

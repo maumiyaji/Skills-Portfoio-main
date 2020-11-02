@@ -1,0 +1,108 @@
+.memory-game {
+    position: relative;
+    width: 640px;
+    height: 490px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    /* perspective: 1000px; */
+}
+
+.memory-card {
+    width: 140px;
+    height: 140px;
+    margin: 10px;
+    position: relative;
+    cursor: pointer;
+    transform: scale(1);
+    transform-style: preserve-3d;
+    transition: 0.5s;
+}
+
+.memory-card:active {
+    transform: scale(.97);
+    transition: transform .2s;
+}
+
+.front-face,
+.back-face {
+    width: 100%;
+    height: 100%;
+    box-shadow: -3px 4px 8px 0 rgba(0, 0, 0, 0.4), -10px 8px 20px 0 rgba(0, 0, 0, 0.4);
+    border-radius: 50%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-backface-visibility: hidden; /* Para funcionar no Safari - MacOS */
+    backface-visibility: hidden;
+}
+
+.front-face {
+    background-color: seagreen;
+    transform: rotateY(180deg);
+    font-size: 500%;
+    color: white;
+}
+
+.back-face {
+    background-color: #1d4a25;
+    font-size: 600%;
+    color: #205b23;
+}
+
+.memory-card.flip {
+    transform: rotateY(180deg);
+}
+
+.memory-card.match {
+    margin: 0px;
+    width: 160px;
+    height: 160px;
+}
+
+.memory-card.rematch {
+    margin: 10px;
+    width: 140px;
+    height: 140px;
+}
+
+.endgame {
+    width: 640px;
+    height: 490px;
+    border-radius: 15px;
+    position: absolute;
+    background-color: rgba(0, 0, 0, .75);
+    font-size: 200%;
+    color: white;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+.endgame { 
+    animation-name: modalzoom;
+    animation-duration: 0.6s;
+}
+  
+@keyframes modalzoom {
+    from {transform:scale(0)} 
+    to {transform:scale(1)}
+}
+
+.botao {
+    border: none;
+    border-radius: 10px;
+    font-size: 100%;
+    font-weight: bold;
+    color: white;
+    padding: 14px 28px;
+    cursor: pointer;
+    background-color: #4CAF50
+}
+
+.botao:hover {background-color: #46a049;}

@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;500&family=Roboto:wght@100;300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/memory.css">
+    <link rel="stylesheet" href="styles/snake.css">
+    <script src="https://kit.fontawesome.com/2aa0d51e7e.js" crossorigin="anonymous"></script> 
+    <title>MSM</title>
+   </head>
+<body>
+    <!-- imagem inicial de fundo-->
+    <div class="titleBG">
+        <div class="titleBox">
+            <p class="titulo">Maurício Satio Miyaji</p>
+            <p class="titulomenor">Maurício Miyaji</p>
+            <p class="subtitulo">Front-End Designer and Developer,<br> 
+            CCM Specialist & Board Game Designer</p>
+        </div>
+    </div>
+    
+    <!-- Menu, parando no topo - 'sticky' -->
+    <div class="menuBar">
+        <a href="#personal" onclick="skillsNoSticky()"><i class="fas fa-id-card aftericon"></i><br>Resumo Pessoal</a>
+        <a href="#skills" onclick="skillslStick()"><i class="fas fa-award aftericon"></i><br>Skills</a>
+        <a href="#portfolio" onclick="resetports()"><i class="far fa-folder-open aftericon"></i><br>Portfólio</a>
+        <a href="#contato" onclick="skillsNoSticky()"><i class="far fa-envelope aftericon"></i><br>Contato</a>
+        <a href="https://github.com/maumiyaji" target="_blank"><i class="fab fa-github aftericon"></i><br>GitHub</a>
+    </div>
+
+    <!-- primeira seção - Apresentação -->
+    <div class="panels" id="welcome">
+        <div class="welcome-a">
+            <div id="wel-txt-ontop">
+                <h2>BEM-VINDO!</h2>
+                <br><p>O objetivo desse site é mostrar um pouco do que eu já fiz e, principalmente, 
+                    do que eu sou capaz de fazer!
+                </p><br>
+            </div>
+            <div class="welcome-b">
+                <div class="wel-left">
+                    <img src="/img/myPhoto2.png" alt="me" width="200px" height="auto">
+                </div>
+                <div class="wel-right">
+                    <div id="wel-txt-onright">
+                        <h2>BEM-VINDO!</h2>
+                        <br><p>O objetivo desse site é mostrar um pouco do que eu já fiz e, principalmente, 
+                            do que eu sou capaz de fazer!
+                        </p><br>
+                    </div>
+                    <p>Tenho mais de 10 anos de experiência na área de tecnologia e mais de 20 como Designer 
+                        Gráfico. Essa ótima mistura entre a lógica e a criatividade me trouxeram até aqui, e 
+                        sei que ainda podem me levar, a cada dia, mais longe!
+                    </p><br>
+                    <p>
+                        Se a sua empresa precisa de alguém com bastante experiência e conhecimento no 
+                        desenvolvimento de sites e aplicações web, muita motivação e 
+                        facilidade em aprender, sei que posso atendê-la!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- segunda seção - Personal Info -->
+    <div class="panels" id="personal">
+        <h2>RESUMO PESSOAL</h2>
+        <br><p>Como eu já disse, esse site não tem o intuito de ser um currículo virtual.<br>
+            Se desejar, utilize os botões abaixo para baixar um currículo, em .pdf, ou para 
+            acessar o meu perfil no LinkedIn:
+        </p><br>
+        <div class="cvoulink">
+            <a href="/img/CV_Mauricio_Miyaji.pdf" class="cvdownload" download><i class="fas fa-address-card cvicon"></i><br>Currículo</a>
+            <a href="https://www.linkedin.com/in/mauriciomiyaji/" target="_blank" class="linkedinlink"><i class="fab fa-linkedin linkedinicon"></i><br>LinkedIn</a>
+        </div>
+        <p>
+            Mas, para que você possa conhecer um pouco mais sobre mim, segue um pequeno resumo
+            profissional:
+        </p><br>
+        <div id="resumo">
+            <p>Cursei Publicidade e Propaganda, na USP, com o objetivo de <b>"criar"</b> e,
+                no meu primeiro emprego, em um estúdio de design, já pude fazer isso,
+                criando todo tipo de produto impresso, como anúncios, folders e embalagens. 
+                Fiquei nesse caminho por algum tempo, mas a época era de muita mudança,
+                com a internet e as mídias digitais tomando cada vez mais espaço. Por isso,
+                eu precisei mudar também, criando sites e conteúdos para a web.</p><br>
+            <p>Nos últimos anos, meu foco foi em soluções de CCM (Customer Communication Management),
+                para o desenvolvimento de documentos com dados variáveis, principalmente para grandes bancos e seguradoras.
+                Mas continuei a criar sites, logotipos, pequenos vídeos e animações, mas sem me atentar ao avanço da tecnologia.</p><br>
+            <p>Em 2020, procurei me atualizar, concluindo um bootcamp de desenvolvimento <button id="fullstackBtn">Full-Stack</button> e
+                um outro de <button id="frontendBtn">Front-End</button><br>No momento, estou buscando cada vez mais recursos, com cursos 
+                específicos de React e Vue, e também um de Python, uma linguagem extremamente versátil, que me atraiu muito, 
+                principalmente para aplicações de análise de dados!</p>
+        </div>
+    </div>
+
+    <!-- Modals para os certificados -->
+    <div class="modal" id="certModal">
+        <span class="closeModal">&times;</span>
+        <img class="modal-content" id="certImg">
+    </div>
+
+    <!-- Modal para o snake game Javascript -->
+    <div class="modal" id="snakeModal">
+        <span class="closeSnk">&times;</span>
+        <div class="modal-content">
+            <div class="snakegame">
+                <div id="gameover"></div>
+                <p id="gameovermsg"></p>
+                <div id="restartbutton">
+                    <button class="button" onclick="easyGame()">
+                        <div id="title">Fácil</div>
+                        <div id="text">(pode atravessar as bordas)</div>
+                    </button>
+                    <button class="button" onclick="hardGame()">
+                        <div id="title">Difícil</div>
+                        <div id="text">(não pode bater nas bordas!)</div>        
+                    </button>
+                </div>
+                <div id="snakecanvas"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para o Memory game -->
+    <div class="modal" id="memoModal">
+        <span class="closeMemo">&times;</span>
+        <section class="memory-game modal-content">
+            <div class="memory-card" data-framework="whatsapp">
+                <div class="front-face"><i class="fab fa-whatsapp"></i></div>
+                <div class="back-face"><i class="fas fa-question-circle"></i></div>
+            </div>
+            <div class="memory-card" data-framework="whatsapp">
+                <div class="front-face"><i class="fab fa-whatsapp"></i></div>
+                <div class="back-face"><i class="fas fa-question-circle"></i></div>
+            </div>
+            <div class="memory-card" data-framework="twitter">
+                <div class="front-face"><i class="fab fa-twitter"></i></div>
+                <div class="back-face"><i class="fas fa-question-circle"></i></div>
+            </div>
+            <div class="memory-card" data-framework="twitter">
+                <div class="front-face"><i class="fab fa-twitter"></i></div>
+                <div class="back-face"><i class="fas fa-question-circle"></i></div>
+            </div>
+            <div class="memory-card" data-framework="telegram">
+                <div class="front-face"><i class="fab fa-telegram-plane"></i></div>
+                <div class="back-face"><i class="fas fa-question-circle"></i></div>
+            </div>
+            <div class="memory-card" data-framework="telegram">
+                <div class="front-face"><i class="fab fa-telegram-plane"></i></div>
+                <div class="back-face"><i class="fas fa-question-circle"></i></div>
+            </div>
+            <div class="memory-card" data-framework="pinterest">
+                <div class="front-face"><i class="fab fa-pinterest"></i></div>
+                <div class="back-face"><i class="fas fa-question-circle"></i></div>
+            </div>
+            <div class="memory-card" data-framework="pinterest">
+                <div class="front-face"><i class="fab fa-pinterest"></i></div>
+                <div class="back-face"><i class="fas fa-question-circle"></i></div>
+            </div>
+            <div class="memory-card" data-framework="facebook">
+                <div class="front-face"><i class="fab fa-facebook-square"></i></div>
+                <div class="back-face"><i class="fas fa-question-circle"></i></div>
+            </div>
+            <div class="memory-card" data-framework="facebook">
+                <div class="front-face"><i class="fab fa-facebook-square"></i></div>
+                <div class="back-face"><i class="fas fa-question-circle"></i></div>
+            </div>
+            <div class="memory-card" data-framework="instagram">
+                <div class="front-face"><i class="fab fa-instagram"></i></div>
+                <div class="back-face"><i class="fas fa-question-circle"></i></div>
+            </div>
+            <div class="memory-card" data-framework="instagram">
+                <div class="front-face"><i class="fab fa-instagram"></i></div>
+                <div class="back-face"><i class="fas fa-question-circle"></i></div>
+            </div>
+            <div id="teste" class="endgame">
+                <h5>PARABÉNS!</h5>
+                <h5 id="restart"></h5><br>
+                <button class="botao" onclick="restartMemory()">RESTART</button>
+            </div>
+        </section>
+    </div>
+
+    <!-- terceira seção - Skills -->
+    <div class="panels" id="skills">
+        <h2>SKILLS</h2><br>
+
+        <!-- Tab menu -->
+        <div class="skills-tab">
+            <!-- menu para telas pequenas menores que 600px (mobile)
+            <div class="dropdown">
+                <a class="skill-link"><i class="fas fa-bars"></i>MENU</a>
+                <div class="dropdown-content">
+                    <a onclick="openSkill(event, 'HtmlCss')">HTML / CSS</a>
+                    <a onclick="openSkill(event, 'Javascript')">Javascript</a>
+                    <a onclick="openSkill(event, 'Photo')">Adobe Tools</a>
+                    <a onclick="openSkill(event, 'XD')">Design UX/UI</a>
+                    <a onclick="openSkill(event, 'BGs')">Board Games</a>
+                    <a onclick="openSkill(event, 'Python')">Python</a>
+                </div>
+            </div>
+            -->
+            <button class="skill-link" onclick="openSkill(event, 'HtmlCss')">HTML / CSS</button>
+            <i class="fas fa-circle"></i>
+            <button class="skill-link" onclick="openSkill(event, 'Javascript')">Javascript</button>
+            <i class="fas fa-circle"></i>
+            <button class="skill-link" onclick="openSkill(event, 'Photo')">Adobe</button>
+            <i class="fas fa-circle"></i>
+            <button class="skill-link" onclick="openSkill(event, 'XD')">Design UX/UI</button>
+            <i class="fas fa-circle"></i>
+            <button class="skill-link" onclick="openSkill(event, 'BGs')">BoardGames</button>   
+            <i class="fas fa-circle"></i>
+            <button class="skill-link" onclick="openSkill(event, 'Python')">Python</button>            
+        </div>
+        
+        <!-- Tab content -->
+        <div id="First" class="skill-content">
+            <h3>Hello</h3>
+            <p>Introduction to skills</p>
+        </div>
+
+        <div id="HtmlCss" class="skill-content">
+            <h3>HTML / CSS</h3>
+            <div class="skillbar">
+                <div class="skillvalue" id="bar-100">100%</div>
+            </div>
+            <img src="/img/html_css.jpg" class="skillimgleft">
+            <div class="skilltxt">
+                <p>Meu conhecimento sobre essas linguagens é muito grande e tem mais de 20 anos 
+                    de experiência!</p><br>
+                <p>É verdade que, hoje em dia, qualquer pessoa pode montar um site bonito, 
+                    usando as ferramentas disponíveis na web, como o WordPress ou o Wix, por exemplo, 
+                    mas meu conhecimento permite a construção de sites com controle total sobre eles, 
+                    uma estrutura organizada, uso correto da semântica, com uma identidade visual 
+                    própria e a capacidade de realizar qualquer tipo de alteração.</p>
+                <br><p>No caso do CSS, também existem diversos frameworks, como o Bootstrap, 
+                    que oferece muitos elementos prontos para usar e podem ser úteis, mas são "chatos"
+                    para serem alterados ou customizados, e dependem de uma biblioteca Javascript (JQuery).</p>
+                <br><p>Mais uma vez, esses problemas desaparecem quando você mesmo cria esses 
+                        elementos e seus estilos.</p>
+            </div>
+        </div>
+        
+        <div id="Javascript" class="skill-content">
+            <h3>Javascript</h3>
+            <div class="skillbar">
+                <div class="skillvalue" id="bar-95">95%</div>
+            </div>
+            <img src="/img/javascript_logos.jpg" class="skillimgleft">
+            <p>Eu também posso afirmar que meus conhecimentos nessa linguagem são muito fortes, 
+                tanto no front-end quanto no back-end, através do Node JS.
+            </p><br>
+            <p>Com o HTML, nós montamos a estrutura e o conteúdo da página, com o CSS, definimos 
+                o estilo dos seus elementos e, com o Javascript, nós podemos alterar tudo isso, 
+                dando todo o "poder" que quisermos oferecer.</p><br>
+            <p>Para uma facilidade maior no desenvolvimento de aplicações web mais complexas, 
+                existem frameworks que ajudam bastante. Os três mais utilizados são o Angular, 
+                o React e o Vue. Estudei (e continuo estudando) todas elas, além de desenvolver 
+                pequenos projetos para os cursos, e posso garantir meu conhecimento no seu uso 
+                também.</p> 
+        </div>
+        
+        <div id="Photo" class="skill-content">
+            <h3>Photoshop / Illustrator / InDesign</h3>
+            <div class="skillbar">
+                <div class="skillvalue" id="bar-100">100%</div>
+            </div>
+            <img src="/img/adobe_tools.jpg" class="skillimgleft">
+            <p>Utilizo as ferramentas da Adobe há mais de 20 anos, criando e desenvolvendo 
+                todo tipo de material visual,
+                manipulando imagens, criando logotipos, ilustrações e pequenas animações.</p><br>
+            <p>A cada nova versão, eu procuro utilizar bastante os novos recursos, me mantendo 
+                atualizado na utilização desses softwares.</p><br>
+            <p>Mas, como a tecnologia continua evoluindo, também busco conhecer novas ferramentas 
+                dessa área, e existem muitas opções, até com vantagens em relação às da Adobe, 
+                como o Photopea, um editor on-line, gratuito e com, praticamente, todos os recursos 
+                do Photoshop.</p>
+        </div>
+
+        <div id="XD" class="skill-content">
+            <h3>AdobeXD / Figma / Sketch</h3>
+            <div class="skillbar">
+                <div class="skillvalue" id="bar-90">90%</div>
+            </div>
+            <img src="/img/uxdesign.jpg" class="skillimgleft">
+            <p>Esses três aplicativos são os mais populares entre os designers UI/UX e,
+                por isso mesmo, procurei conhecer bem todos eles e a sua estrutura de operação.</p><br>
+            <p>Cada um tem suas vantagens e desvantagens. O Sketch depende de outras aplicações, 
+                mas tem muitos recursos e plug-ins, para qualquer necessidade. O Figma é web-based
+                e uma vantagem em trabalhos colaborativos: vários usuários podem trabalhar 
+                juntos e simultaneamente em qualquer projeto.</p><br>
+            <p>Pessoalmente, tenho utilizado mais o Adobe XD, que também permite o trabalho simultâneo, 
+                pode ser usado off-line e, por ser da Adobe, possue uma integração 
+                muito grande com o Photoshop e o Illustrator, que eu uso há vários anos. 
+                Mas, como eu disse antes, meu objetivo é conhecer e dominar as três ferramentas, 
+                para poder participar de qualquer projeto ou equipe, sem problemas!</p><br>
+            <p>O design web é um dos meus pontos fortes e, conhecendo toda a estrutura front-end, 
+                posso pensar em elementos bastante funcionais, mas, principalmente, bonitos e 
+                originais!</p>
+        </div>
+
+        <div id="BGs" class="skill-content">
+            <h3>Board Game Design</h3>
+            <div class="skillbar">
+                <div class="skillvalue" id="bar-95">95%</div>
+            </div>
+            <img src="/img/boardgames2.png" class="skillimgleft">
+            <p>Como criador/desenvolvedor de board games (jogos de tabuleiro), assim como no design em geral, 
+                meu foco sempre foi em jogos que unissem bem a lógica e a criatividade!</p><br>
+            <p>A maioria foi para um público infanto-juvenil, como "O Laboratório do Dr. Lógica", 
+                "Bob Esponja - O Sanduíche Maluco", "A Liga da Justiça", "Marvel Heroes", 
+                "War: Cards" e "Ídolos", entre outros, publicados por várias empresas brasileiras, 
+                como a Grow, a Toyster, a Jak e a GameOffice.</p><br>
+                Mas um deles merece destaque: "A Ilha de Waka-Waka", 
+                criado em conjunto com Maurício Gibrin e Fabiano Onça, que venceu o 
+                23º "Concours International de Créateurs de Jeux de Société”, em 2004, 
+                um prêmio da Ludothèque de Paris, e foi, posteriormente, publicado com o nome
+                "Vineta", pela Winning Moves, uma empresa americana.</p><br>
+        </div>
+
+        <div id="Python" class="skill-content">
+            <h3>Python</h3>
+            <div class="skillbar">
+                <div class="skillvalue" id="bar-75">75%</div>
+            </div>
+            <img src="/img/python.png" class="skillimgleft">
+            <p>Conheci o Python, mais profundamente, há pouco tempo, apesar da fama dele já vir de muitos anos atrás!</p><br>
+            <p>Como o meu perfil não era de programador, especialmente em aplicações back-end,
+                não havia tido interesse mas, após realizar um bootcamp de desenvolvimento full-stack, 
+                tive aulas e um desafio final em Python (um bot interativo para o Telegram).</p><br>
+            <p>Gostei muito das possibilidades e procurei conhecer mais a fundo essa linguagem. 
+                Atualmente estou fazendo mais um curso, específico para o Python, procurando abrir 
+                mais ainda minhas possibilidades profissionais. Já estudei um pouco de Flask e Django, 
+                seus principais frameworks para desenvolvimento web e meu objetivo é usar o Python 
+                em aplicações de Data Analysis.</p><br>
+        </div>
+    </div>
+
+    <div class="panels" id="portfolio">
+        <div id="portpanel">
+            <h2>PORTFÓLIO</h2><br>
+            <div class="portfolio-options">
+                <div class="portoption" onclick="webdesign(event)">
+                    <div class="portoptionicon">
+                        <i class="fas fa-laptop porticon"></i>
+                        <p><b>Web Design</b></p>
+                    </div>
+                    <div class="portext">
+                        <br><p>asdasdsd</p>
+                    </div>            
+                </div>
+                <div class="portoption" onclick="javascript(event)">
+                    <div class="portoptionicon">
+                        <i class="fas fa-code porticon"></i>
+                        <p><b>Javascript</b></p>
+                    </div>
+                    <div class="portext">
+                        <br><p>asdasdsd</p>
+                    </div>  
+                </div>
+                <div class="portoption" onclick="graphdesign(event)">
+                    <div class="portoptionicon">
+                        <i class="fas fa-pencil-alt porticon"></i>
+                        <p><b>Graphic Design</b></p>
+                    </div>
+                    <div class="portext">
+                        <br><p>asdasdsd</p>
+                    </div>  
+                </div>
+                <div class="portoption" onclick="boardgames(event)">
+                    <div class="portoptionicon">
+                        <i class="fas fa-dice porticon"></i>
+                        <p><b>Board Games</b></p>
+                    </div>
+                    <div class="portext">
+                        <br><p>asdasdsd</p>
+                    </div>  
+                </div>
+            </div>
+        </div>
+        <div id="portcontext"></div>
+    </div>
+
+    <div class="panels" id="contato">
+        <h2>CONTATO</h2><br>
+        <!-- contact form (modificar depois) -->
+        <div class="container">
+            <form action="action_page.php">
+          
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" name="firstname" placeholder="Seu nome...">
+
+            <label for="email">E-Mail</label>
+            <input type="text" id="email" name="youremail" placeholder="Seu e-mail...">
+        
+            <label for="subject">Mensagem</label>
+            <textarea id="subject" name="subject" placeholder="Sua mensagem..." style="height:200px"></textarea>
+        
+            <input type="submit" value="Enviar">
+          
+            </form>
+        </div>
+    </div>
+  
+    <script src="/js/skill_tabs.js"></script>
+    <script src="/js/memory.js"></script>
+    <script src="/js/gallery.js"></script>
+    <script src="/js/snake.js"></script>
+    <script src="/js/modal.js"></script>
+    <script src="/js/portfolio.js"></script>
+
+</body>
+
+</html>
