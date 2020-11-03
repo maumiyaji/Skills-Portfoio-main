@@ -388,13 +388,13 @@
         <h2>CONTATO</h2><br>
         <!-- contact form (modificar depois) -->
         <div class="container">
-            <form action="action_page.php">
+            <form action= "sendmail.php" method="post">
           
             <label for="nome">Nome</label>
-            <input type="text" id="nome" name="firstname" placeholder="Seu nome...">
+            <input type="text" id="name" name="firstname" placeholder="Seu nome...">
 
             <label for="email">E-Mail</label>
-            <input type="text" id="email" name="youremail" placeholder="Seu e-mail...">
+            <input type="email" id="email" name="youremail" placeholder="Seu e-mail...">
         
             <label for="subject">Mensagem</label>
             <textarea id="subject" name="subject" placeholder="Sua mensagem..." style="height:200px"></textarea>
