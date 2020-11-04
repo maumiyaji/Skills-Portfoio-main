@@ -342,42 +342,103 @@
     <div class="panels" id="portfolio">
         <div id="portpanel">
             <h2>PORTFÓLIO</h2><br>
-            <div class="portfolio-options">
+            <div class="portfolio-options-full" id="portone">
                 <div class="portoption" onclick="webdesign(event)">
                     <div class="portoptionicon">
                         <i class="fas fa-laptop porticon"></i>
-                        <p><b>Web Design</b></p>
-                    </div>
-                    <div class="portext">
-                        <br><p>asdasdsd</p>
-                    </div>            
+                        <p><b>Web Design</b></p><br>
+                        <div class="portext">
+                            <p>Esse site foi criado com o intuito de ser um
+                            portfólio geral, mostrando o meu estilo e conhecimento 
+                            no design e desenvolvimento web.</p>
+                            <br><p>
+                            Todos os arquivos HTML, CSS e JS estão disponíveis
+                            no meu GitHub.</p>
+                            <br><p>
+                            Estou retomando o foco nessa área, depois de alguns anos. 
+                            A maioria dos sites que eu criei, já foram atualizados ou 
+                            estão inativos, mas deixei como exemplos do meu estilo e 
+                            podem ser vistos na galeria.</p>
+                        </div>   
+                    </div> 
                 </div>
                 <div class="portoption" onclick="javascript(event)">
                     <div class="portoptionicon">
                         <i class="fas fa-code porticon"></i>
-                        <p><b>Javascript</b></p>
+                        <p><b>Javascript</b></p><br>
+                        <div class="portext">
+                            <p>Como já disse, os arquivos JS utilizados nesse portfólio 
+                                estão no GitHub.</p>
+                            <br><p>Não utilizei nenhuma library ou framework, para 
+                                mostrar o meu domínio da linguagem 'pura', mas conheço 
+                                muito bem as opções e recursos disponíveis, como o Vue, 
+                                que é o meu foco de estudo atual.</p>
+                            <br><p>Na galeria, deixei apenas dois jogos, como exemplo, 
+                                mas pretendo amplia-la com mais aplicativos, que pretendo 
+                                desenvolver.</p>
+                        </div>  
                     </div>
-                    <div class="portext">
-                        <br><p>asdasdsd</p>
-                    </div>  
                 </div>
                 <div class="portoption" onclick="graphdesign(event)">
                     <div class="portoptionicon">
                         <i class="fas fa-pencil-alt porticon"></i>
-                        <p><b>Graphic Design</b></p>
+                        <p><b>Graphic Design</b></p><br>
+                        <div class="portext">
+                            <p>Minha formação inicial foi nessa área e ainda me dá 
+                                muito prazer criar todo tipo de material gráfico 
+                                impresso ou virtual, com muita beleza e criatividade.</p>
+                            <br><p>Nessa galeria, estão alguns exemplos variados, como 
+                                um layout para um estande, logotipos, folders, cartazes 
+                                e ilustrações.</p>
+                            <br><p>Todo esse site e suas imagens, com exceção de uma (Python), 
+                                foram criações próprias.
+                            </p>
+                        </div>  
                     </div>
-                    <div class="portext">
-                        <br><p>asdasdsd</p>
-                    </div>  
                 </div>
                 <div class="portoption" onclick="boardgames(event)">
                     <div class="portoptionicon">
                         <i class="fas fa-dice porticon"></i>
-                        <p><b>Board Games</b></p>
+                        <p><b>Board Games</b></p><br>
+                        <div class="portext">
+                            <p>Como um grande fã de jogos de tabuleiro, durante algum 
+                                tempo trabalhei na criação dos mesmos, desenvolvendo 
+                                a mecânica, as regras e os protótipos, que seriam, mais 
+                                tarde, publicados.</p>
+                            <br><p>Na galeria, estão apenas alguns deles (o restante 
+                                ainda será adicionado):</p>
+                            <br><p>"Vineta" - Winning Moves;<br> 
+                                "Bob Esponja: O Sanduíche Maluco" - JAK;<br>
+                                "Marvel Heroes" - Grow;<br>
+                                "War: Cards" - Grow.</p>
+                        </div>  
                     </div>
-                    <div class="portext">
-                        <br><p>asdasdsd</p>
-                    </div>  
+                </div>
+            </div>
+            <div class="portfolio-options-icons" id="porttwo">
+                <div class="portoption-two" onclick="webdesign(event)">
+                    <div class="portoptionicon">
+                        <i class="fas fa-laptop porticon"></i>
+                        <p><b>Web Design</b></p><br>
+                    </div>
+                </div>
+                <div class="portoption-two" onclick="javascript(event)">
+                    <div class="portoptionicon">
+                        <i class="fas fa-code porticon"></i>
+                        <p><b>Javascript</b></p><br>
+                    </div>
+                </div>
+                <div class="portoption-two" onclick="graphdesign(event)">
+                    <div class="portoptionicon">
+                        <i class="fas fa-pencil-alt porticon"></i>
+                        <p><b>Graphic Design</b></p><br>
+                    </div>
+                </div>
+                <div class="portoption-two" onclick="boardgames(event)">
+                    <div class="portoptionicon">
+                        <i class="fas fa-dice porticon"></i>
+                        <p><b>Board Games</b></p><br>
+                    </div>
                 </div>
             </div>
         </div>
@@ -390,16 +451,16 @@
         <div class="container">
             <form action= "sendmail.php" method="post">
           
-            <label for="nome">Nome</label>
-            <input type="text" id="name" name="firstname" placeholder="Seu nome...">
+                <label for="nome">Nome</label>
+                <input type="text" id="name" name="firstname" placeholder="Seu nome...">
 
-            <label for="email">E-Mail</label>
-            <input type="email" id="email" name="youremail" placeholder="Seu e-mail...">
-        
-            <label for="subject">Mensagem</label>
-            <textarea id="subject" name="subject" placeholder="Sua mensagem..." style="height:200px"></textarea>
-        
-            <input type="submit" value="Enviar">
+                <label for="email">E-Mail</label>
+                <input type="text" id="email" name="youremail" placeholder="Seu e-mail...">
+            
+                <label for="subject">Mensagem</label>
+                <textarea id="subject" name="subject" placeholder="Sua mensagem..." style="height:200px"></textarea>
+            
+                <input type="submit" value="Enviar">
           
             </form>
         </div>

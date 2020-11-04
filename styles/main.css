@@ -434,8 +434,14 @@ body{
 
 /* Portfolio Menu */
 
-.portfolio-options {
+.portfolio-options-full {
     display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.portfolio-options-icons {
+    display: none;
     flex-wrap: wrap;
     text-align: center;
 }
@@ -443,7 +449,14 @@ body{
 .portoption {
     display: flex;
     flex-direction: column;
-    padding: 20px;
+    padding: 15px;
+    flex: 25%;
+}
+
+.portoption-two {
+    display: flex;
+    flex-direction: column;
+    padding-top: 15px;
     flex: 25%;
 }
 
@@ -456,9 +469,37 @@ body{
     cursor: pointer;
 }
 
+.portoptionicon:hover .portext {
+    background-color: royalblue;
+    color: white;
+}
+
 .porticon {
     font-size: 200%;
     padding-bottom: 10px;
+}
+
+.portext {
+    background-color: #daebff;
+    font-size: 14pt;
+    color: black;
+    text-decoration: none;
+    text-align: justify;
+    padding-left: 20px;
+    padding: 10px 15px;
+    border-radius: 5%;
+    box-shadow: -3px 3px 5px rgba(12, 12, 50, 0.3);
+    cursor: pointer;
+}
+
+.portext:hover {
+    background-color: royalblue;
+}
+
+.portext:hover .portoptionicon {color: royalblue;}
+
+@media screen and (max-width: 810px) {
+    .portoption {flex: 100%;}
 }
 
 /* div para a colocação de cada galeria de itens, através do portfolio.js */

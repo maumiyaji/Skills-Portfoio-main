@@ -6,10 +6,18 @@ function resetports() {
         portlinks[i].className = portlinks[i].className.replace(" portactive", "");
     }
 
+    portlinks = document.getElementsByClassName("portoption-two");
+    for (i = 0; i < portlinks.length; i++) {
+        portlinks[i].className = portlinks[i].className.replace(" portactive", "");
+    }
+
     portxt = document.getElementsByClassName("portext");
     for (i = 0; i < portxt.length; i++) {
         portxt[i].style.display = "block";
     }
+
+    document.getElementById("portone").style.display = "flex";
+    document.getElementById("porttwo").style.display = "none";
 
     let z = document.getElementById("portcontext");
     z.innerHTML = ``;
@@ -197,15 +205,19 @@ function changeMain(imageIndex) {
 
 function allports(evt) {
     window.location = "#portpanel";
-
-    portxt = document.getElementsByClassName("portext");
-    for (i = 0; i < portxt.length; i++) {
-        portxt[i].style.display = "none";
-    }
     
     portlinks = document.getElementsByClassName("portoption");
     for (i = 0; i < portlinks.length; i++) {
         portlinks[i].className = portlinks[i].className.replace(" portactive", "");
     }
+
+    portlinks = document.getElementsByClassName("portoption-two");
+    for (i = 0; i < portlinks.length; i++) {
+        portlinks[i].className = portlinks[i].className.replace(" portactive", "");
+    }
+
+    document.getElementById("portone").style.display = "none";
+    document.getElementById("porttwo").style.display = "flex";
+
     evt.currentTarget.className += " portactive";
 }
