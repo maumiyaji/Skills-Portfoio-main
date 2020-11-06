@@ -440,6 +440,14 @@ body{
     left: 0;
 }
 
+#port-bg-horiz {
+    position: absolute;
+    display: none;
+    z-index: -1;
+    top: 0;
+    left: 0;
+}
+
 /* Portfolio Menu */
 
 .portfolio-options-full {
@@ -507,11 +515,12 @@ body{
 @media screen and (max-width: 810px) {
     .portoption {flex: 100%;}
     #port-bg {display: none;}
+    #port-bg-horiz {display: block;}
 }
 
 /* div para a colocação de cada galeria de itens, através do portfolio.js */
 #portcontext {
-    background-color: #000a1d;
+    background-color: black;
 }
 
 .snakemod {
@@ -542,7 +551,7 @@ body{
 }
 
 .portflex-item-left {
-    background-color: #000a1d;
+    background-color: black;
     display: flex;
     flex-direction: column;
     flex: 20%;
@@ -551,7 +560,7 @@ body{
 
 .portflex-item-right {
     position: relative;
-    background-color: #000a1d;
+    background-color: black;
     flex: 80%;
     font-size: 30px;
     justify-content: center;
@@ -668,9 +677,10 @@ body{
 }
 
 #contato {
-    background-color: #b0c4de;
+    background: linear-gradient(#0b173a, #7690de);
     font-size: 12pt;
     font-weight: 500;
+    color: white;
 }
 
 /* contact form */
@@ -705,8 +715,48 @@ input[type=submit]:hover {
 .container {
     border-radius: 5px;
     background-color: #95acc9;
+    color: black;
     padding: 20px;
     margin-left: 10%;
     margin-right: 10%;
     box-shadow: -8px 8px 10px rgba(12, 12, 50, 0.5);
+}
+
+.contatofirst {
+    vertical-align: middle;
+}
+
+.whatsapp {
+    font-size: 150%;
+    color: green;
+    padding-right: 5px;
+    vertical-align: middle;
+}
+
+.telegram {
+    font-size: 150%;
+    color: royalblue;
+    padding-left: 25px;
+    padding-right: 5px;
+    vertical-align: middle;
+}
+
+.footer {
+    font-size: 10pt;
+    font-weight: 300;
+    text-align: center;
+    background-color: black;
+    color: white;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.footer a {
+    text-decoration: none;
+    color: white;
+}
+
+.footericon {
+    padding-left: 30px;
+    padding-right: 5px;
 }
