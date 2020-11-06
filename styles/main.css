@@ -90,6 +90,7 @@ body{
     font-weight: 300;
     text-align: center;
     padding-top: 80px;
+    position: relative;
 }
 
 .panels h2 {font-weight: 700;}
@@ -432,6 +433,13 @@ body{
     padding-top: 10px;
 }
 
+#port-bg {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+}
+
 /* Portfolio Menu */
 
 .portfolio-options-full {
@@ -465,7 +473,7 @@ body{
 }
 
 .portoptionicon:hover, .portactive {
-    color: royalblue;
+    color: rgb(29, 59, 150);
     cursor: pointer;
 }
 
@@ -480,7 +488,7 @@ body{
 }
 
 .portext {
-    background-color: #daebff;
+    background-color: rgba(219, 236, 255, 0.5);
     font-size: 14pt;
     color: black;
     text-decoration: none;
@@ -496,10 +504,9 @@ body{
     background-color: royalblue;
 }
 
-.portext:hover .portoptionicon {color: royalblue;}
-
 @media screen and (max-width: 810px) {
     .portoption {flex: 100%;}
+    #port-bg {display: none;}
 }
 
 /* div para a colocação de cada galeria de itens, através do portfolio.js */

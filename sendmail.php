@@ -6,4 +6,9 @@ $mensagem .= "Mensagem: ".$_POST['subject'];
 
 mail("maumiyaji@gmail.com", "Formulário Teste", $mensagem);
 
+echo "<script>
+             alert('mensagem enviada! Obrigado!);
+             window.location='https://miyajidesign.com/#contato';
+     </script>";
+
 ?>
